@@ -1,8 +1,18 @@
 package dev._x.EventClean.core.entities;
 
 
+import dev._x.EventClean.core.enums.TipoEvento;
+
+import java.time.LocalDateTime;
+
 public record Event(
         String nome,
         String descricao,
-        LocalDateTime inicio
+        String identificador,
+        LocalDateTime datainicio,
+        LocalDateTime datafim,
+        String Local,
+        String organizador,
+        TipoEvento tipo
+
 ) {}
