@@ -12,7 +12,8 @@ public record Event(
         String identificador,
         LocalDateTime datainicio,
         LocalDateTime datafim,
-        String Local,
+        String localEvento,
+        String capacidade,
         String organizador,
         TipoEvento tipo
 
