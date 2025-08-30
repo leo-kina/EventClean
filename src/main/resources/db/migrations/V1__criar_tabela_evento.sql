@@ -12,3 +12,4 @@ organizador VARCHAR(255) NOT NULL,
 tipo VARCHAR(50) NOT NULL
 );
 
+
