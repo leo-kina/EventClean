@@ -1,4 +1,7 @@
 package dev._x.EventClean.core.gateway;
 
-public class EventoGateway {
+import dev._x.EventClean.core.entities.Event;
+
+public interface EventoGateway  {
+    Event criarEvento(Event evento);
 }
