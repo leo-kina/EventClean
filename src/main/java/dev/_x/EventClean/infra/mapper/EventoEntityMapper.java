@@ -2,7 +2,9 @@ package dev._x.EventClean.infra.mapper;
 
 import dev._x.EventClean.core.entities.Event;
 import dev._x.EventClean.infra.persistence.EventEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EventoEntityMapper {
     public EventEntity toEntity(Event evento){
         return new EventEntity(
