@@ -2,6 +2,9 @@ package dev._x.EventClean.core.usecases;
 
 import dev._x.EventClean.core.entities.Event;
 
-public interface buscarEventoCase {
-    public Event execute(Event event);
+import java.util.List;
+
+public interface BuscarEventoCase {
+
+     List<Event> execute();
 }

@@ -15,4 +15,5 @@ public class CriarEventoUsecaseImpl implements CriarEventoUsecase {
     public Event execute(Event evento) {
         return eventoGateway.criarEvento(evento);
     }
+
 }

@@ -2,6 +2,9 @@ package dev._x.EventClean.core.gateway;
 
 import dev._x.EventClean.core.entities.Event;
 
+import java.util.List;
+
 public interface EventoGateway  {
     Event criarEvento(Event evento);
+    List<Event> listarEvento();
 }
