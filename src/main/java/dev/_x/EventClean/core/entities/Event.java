@@ -13,7 +13,7 @@ public record Event(
         LocalDateTime datainicio,
         LocalDateTime datafim,
         String localEvento,
-        String capacidade,
+        Integer capacidade,
         String organizador,
         TipoEvento tipo
 
