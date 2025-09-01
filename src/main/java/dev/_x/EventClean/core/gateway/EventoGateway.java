@@ -7,4 +7,5 @@ import java.util.List;
 public interface EventoGateway  {
     Event criarEvento(Event evento);
     List<Event> listarEvento();
+    boolean existePorIdentificador(String identificador);
 }
