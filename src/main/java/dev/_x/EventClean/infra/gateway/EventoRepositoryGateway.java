@@ -27,4 +27,13 @@ public class EventoRepositoryGateway implements EventoGateway {
         List<EventEntity> lista = eventoRepository.findAll();
         return lista.stream().map(mapper::toDomain).toList();
     }
+
+    @Override
+    public boolean existePorIdentificador(String identificador) {
+        return eventoRepository
+                .findAll()
+                .stream()
+                .anyMatch(evento -> evento.getIdentificador()
+                        .equalsIgnoreCase(identificador));
+    }
 }
