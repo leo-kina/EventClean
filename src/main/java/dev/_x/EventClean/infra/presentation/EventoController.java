@@ -1,11 +1,10 @@
 package dev._x.EventClean.infra.presentation;
 
 import dev._x.EventClean.core.entities.Event;
-import dev._x.EventClean.core.usecases.BuscarEventoCase;
+import dev._x.EventClean.core.usecases.BuscarEventoUseCase;
 import dev._x.EventClean.core.usecases.CriarEventoUsecase;
 import dev._x.EventClean.infra.dtos.EventoDTO;
 import dev._x.EventClean.infra.mapper.EventoDtoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +14,11 @@ import java.util.List;
 public class EventoController {
 
     private final CriarEventoUsecase criarEventoUsecase;
-    private final BuscarEventoCase buscarEventoCase;
+    private final BuscarEventoUseCase buscarEventoCase;
     private final EventoDtoMapper eventoDtoMapper;
 
 
-    public EventoController(CriarEventoUsecase criarEventoUsecase, BuscarEventoCase buscarEventoCase, EventoDtoMapper eventoDtoMapper) {
+    public EventoController(CriarEventoUsecase criarEventoUsecase, BuscarEventoUseCase buscarEventoCase, EventoDtoMapper eventoDtoMapper) {
         this.criarEventoUsecase = criarEventoUsecase;
         this.buscarEventoCase = buscarEventoCase;
         this.eventoDtoMapper = eventoDtoMapper;

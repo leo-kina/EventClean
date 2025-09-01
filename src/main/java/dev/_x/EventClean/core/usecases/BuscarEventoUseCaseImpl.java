@@ -5,10 +5,10 @@ import dev._x.EventClean.core.gateway.EventoGateway;
 
 import java.util.List;
 
-public class BuscarEventoCaseImpl implements BuscarEventoCase {
+public class BuscarEventoUseCaseImpl implements BuscarEventoUseCase {
     private final EventoGateway eventoGateway;
 
-    public BuscarEventoCaseImpl(EventoGateway eventoGateway) {
+    public BuscarEventoUseCaseImpl(EventoGateway eventoGateway) {
         this.eventoGateway = eventoGateway;
     }
 
