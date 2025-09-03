@@ -3,15 +3,13 @@ package dev._x.EventClean.infra.presentation;
 import dev._x.EventClean.core.entities.Event;
 import dev._x.EventClean.core.usecases.BuscarEventoUseCase;
 import dev._x.EventClean.core.usecases.CriarEventoUsecase;
+import dev._x.EventClean.core.usecases.FiltrarIdentificadorEventoUsecase;
 import dev._x.EventClean.infra.dtos.EventoDTO;
 import dev._x.EventClean.infra.mapper.EventoDtoMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @RestController
 @RequestMapping("api/v1/")
@@ -20,12 +18,13 @@ public class EventoController {
     private final CriarEventoUsecase criarEventoUsecase;
     private final BuscarEventoUseCase buscarEventoCase;
     private final EventoDtoMapper eventoDtoMapper;
+    private final FiltrarIdentificadorEventoUsecase filtrarIdentificadorEventoUsecase;
 
-
-    public EventoController(CriarEventoUsecase criarEventoUsecase, BuscarEventoUseCase buscarEventoCase, EventoDtoMapper eventoDtoMapper) {
+    public EventoController(CriarEventoUsecase criarEventoUsecase, BuscarEventoUseCase buscarEventoCase, EventoDtoMapper eventoDtoMapper, FiltrarIdentificadorEventoUsecase filtrarIdentificadorEventoUsecase) {
         this.criarEventoUsecase = criarEventoUsecase;
         this.buscarEventoCase = buscarEventoCase;
         this.eventoDtoMapper = eventoDtoMapper;
+        this.filtrarIdentificadorEventoUsecase = filtrarIdentificadorEventoUsecase;
     }
 
     @PostMapping("/criarevento")
@@ -39,5 +38,10 @@ public class EventoController {
     @GetMapping("/listar")
     public List<EventoDTO> listareventos(){
         return buscarEventoCase.execute().stream().map(eventoDtoMapper::toDto).toList();
+    }
+    @GetMapping("/filtrar/{identificador}")
+    public ResponseEntity<Event> buscarPorIdentificador(@PathVariable String identificador ){
+        Event event = filtrarIdentificadorEventoUsecase.execute(identificador);
+        return ResponseEntity.ok(event);
     }
 }
